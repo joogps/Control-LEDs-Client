@@ -8,6 +8,6 @@ for (let pin of pins)
 	gpio.setup(pin, gpio.DIR_OUT);
 
 io.on('action', function(data) {
-	if (pins.includes(data.pin) && ['on', 'off'].includes(data.state))
+	if (pins.includes(parseInt(data.pin)) && ['on', 'off'].includes(data.state))
 		gpio.write(data.pin, data.state=='on');
 });
